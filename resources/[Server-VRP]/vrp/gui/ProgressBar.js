@@ -49,19 +49,19 @@ ProgressBar.prototype.frame = function(time)
     var anchor_index = anchor.indexOf(this);
     if(anchor_index >= 0){
       if(anchor_name == "minimap"){ //MINIMAP
-        var width = cfg.anchor_minimap_width/anchor.length; //divide horizontal map space by number of pbars
+ var width = cfg.anchor_minimap_width/anchor.length; //divide horizontal map space by number of pbars
 
         //set size
-        this.div.style.width = this.div_label.style.width = (195)+"em";
-        this.div_inner.style.height = this.div.style.height = this.div_label.style.height = (7)+"em";
+        this.div.style.width = this.div_label.style.width = (width-2)+"px";
+        this.div_inner.style.height = this.div.style.height = this.div_label.style.height = (12)+"px";
         this.div_label.style.lineHeight = this.div_label.style.height;
 
         //set label font size
-        this.div_label.style.fontSize = "0em";
+        this.div_label.style.fontSize = "0.0em";
 
         //set position
-        this.div.style.right = (document.body.offsetWidth-this.div.offsetWidth-19)+"em";
-        this.div.style.top = (document.body.offsetHeight-190-anchor_index*15)+"em";
+        this.div.style.left = (cfg.anchor_minimap_left+anchor_index*width)+"px";
+        this.div.style.top = (document.body.offsetHeight-cfg.anchor_minimap_bottom)+"px";
       }
       else if(anchor_name == "botright"){ //BOTRIGHT
         //set size
